@@ -30,7 +30,9 @@ C:\Greenday_Ventures
 ├── .gitignore       (preserve if present)
 ├── .nojekyll        (preserve if present — keep it for GitHub Pages)
 └── Assets\
-    └── jermane-lamb-headshot.jpg
+    ├── hero-we-service.png        Original hero photograph (2 MB, preserved)
+    ├── hero-we-service.jpg        Optimised 1400px copy — this is what the site loads
+    └── jermane-lamb-headshot.jpg  Founder portrait
 ```
 
 ## Local preview
@@ -103,12 +105,31 @@ To use a real logo:
 3. Set `width` and `height` to the real pixel dimensions so the layout does not
    shift. Do not stretch or distort the mark.
 
+## Images
+
+| File | Used on | Notes |
+| --- | --- | --- |
+| `Assets/hero-we-service.jpg` | Homepage hero (right side of the split layout) | Editorial support imagery only. It is **not** Jermane Lamb, not a client, and not an acquisition. Nothing on the site may imply otherwise. |
+| `Assets/hero-we-service.png` | Nothing — preserved original | 2 MB. Kept unmodified. To load it instead of the JPEG, change the `src` in the hero `<figure>` in `index.html`. |
+| `Assets/jermane-lamb-headshot.jpg` | Homepage founder preview and `about.html` | Deliberately kept out of the hero. |
+
+Both images carry explicit `width` and `height` attributes so no layout shift
+occurs while they load.
+
+**TODO: Client confirmation required — licence and usage rights for the hero
+photograph** before the site is promoted publicly.
+
 ## How to connect the inquiry form later
 
 The form in `contact.html` has **no `action` attribute and no endpoint**. It
 cannot post anywhere and never claims a message was sent. On submit it
 validates, then states plainly that the form is not connected and offers a
 pre-filled `mailto:` message.
+
+The submit button is labelled **"Prepare Email"** rather than "Send message",
+because pressing it prepares a pre-filled email instead of sending anything.
+Change the label back to "Send message" at the same time you connect the
+endpoint.
 
 To connect it:
 
@@ -149,6 +170,10 @@ var FORM_ENDPOINT_CONNECTED = false;
 - Final domain name (for canonical and Open Graph URLs)
 - Whether a privacy policy page is needed
 - Approved LinkedIn or other public profile links
+- Licence and usage rights for the hero photograph
+- Whether the softened confidentiality wording ("intended to remain private",
+  "handled with care") is acceptable, or whether Jermane wants firmer language
+  backed by an NDA process
 - Definition of website success (inquiries per month, referral quality, etc.)
 - Any testimonials, references, or public proof that may be used later
 
@@ -175,6 +200,10 @@ confirmed:
 - Online scheduling or booking
 - Invented statistics, counters, or metrics
 - A postal address or telephone number
+- Absolute confidentiality guarantees, or any claim that information is never
+  shared with anyone
+- Any suggestion that the hero photograph shows Jermane, a client, or a
+  completed acquisition
 
 ## Deployment
 
