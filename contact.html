@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start a Conversation | Greenday Venture</title>
+<meta name="description" content="Start a confidential conversation with Greenday Venture about retirement, succession, or a long-term ownership transition for your home-service business.">
+
+<!-- TODO: Client confirmation required: final public domain for canonical and Open Graph URLs. -->
+<link rel="canonical" href="https://bazeocrisy.github.io/Greenday_Ventures/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Greenday Venture">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Start a Conversation | Greenday Venture">
+<meta property="og:description" content="A confidential first conversation about what comes next for the business you built.">
+<meta property="og:url" content="https://bazeocrisy.github.io/Greenday_Ventures/contact.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="wordmark" href="index.html">Greenday <span class="wordmark-accent">Venture</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      Menu
+    </button>
+    <nav class="site-nav" id="primary-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="criteria.html">What We Look For</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li class="nav-cta"><a href="contact.html" aria-current="page">Start a Conversation</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow marked">Start a Conversation</p>
+      <h1>A private first conversation.</h1>
+      <p class="lede">Whatever your timing, the first exchange is confidential and carries no obligation. Share only what you are comfortable sharing.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="contact-layout">
+
+        <div>
+          <h2 class="visually-hidden">Inquiry form</h2>
+
+          <!-- DEVELOPER NOTE ---------------------------------------------------
+               This form has NO backend and NO form-service endpoint. There is
+               deliberately no `action` attribute, so it cannot silently post
+               anywhere or fabricate a success state. script.js validates the
+               fields and then tells the visitor plainly that the form is not
+               connected yet, offering a pre-filled mailto: message instead.
+
+               To connect it later (see README.md):
+                 1. Create the endpoint (for example a Formspree form).
+                 2. Add action="THE_ENDPOINT_URL" and method="post" below.
+                 3. In script.js, set FORM_ENDPOINT_CONNECTED = true.
+               TODO: Client confirmation required: preferred inquiry workflow and
+               form processing endpoint.
+               ------------------------------------------------------------------ -->
+          <form class="form" id="inquiry-form" novalidate>
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+              <span class="field-error" id="name-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+              <span class="field-error" id="email-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+
+            <div class="field">
+              <label for="company">Company name <span class="optional">(optional)</span></label>
+              <input type="text" id="company" name="company" autocomplete="organization">
+            </div>
+
+            <div class="field">
+              <label for="state">State <span class="optional">(optional)</span></label>
+              <input type="text" id="state" name="state" autocomplete="address-level1">
+            </div>
+
+            <div class="field">
+              <label for="industry">Industry <span class="optional">(optional)</span></label>
+              <select id="industry" name="industry">
+                <option value="">Select an industry</option>
+                <option>Plumbing</option>
+                <option>HVAC</option>
+                <option>Electrical</option>
+                <option>Landscaping</option>
+                <option>Restoration</option>
+                <option>Specialty trades</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="reason">Reason for reaching out <span class="optional">(optional)</span></label>
+              <select id="reason" name="reason">
+                <option value="">Select a reason</option>
+                <option>Thinking about retirement or succession</option>
+                <option>Considering a sale in the next few years</option>
+                <option>Exploring options, no timeline yet</option>
+                <option>I am a broker, accountant, or attorney making an introduction</option>
+                <option>Something else</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required aria-describedby="message-hint message-error"></textarea>
+              <span class="field-hint" id="message-hint">A few sentences is plenty. Please do not include financial statements, tax records, or other sensitive documents in a first message.</span>
+              <span class="field-error" id="message-error"></span>
+            </div>
+
+            <button class="btn btn--primary" type="submit">Send message</button>
+
+            <!-- Status region. Announced to screen readers when it changes. -->
+            <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+          </form>
+
+          <noscript>
+            <div class="form-status">
+              <p>The form above needs JavaScript to work. Please email <a href="mailto:greenday.venture@gmail.com">greenday.venture@gmail.com</a> directly and Jermane will reply personally.</p>
+            </div>
+          </noscript>
+        </div>
+
+        <aside class="contact-aside">
+          <h2>Email directly</h2>
+          <p><a href="mailto:greenday.venture@gmail.com">greenday.venture@gmail.com</a></p>
+
+          <h2>What happens next</h2>
+          <p>Your message goes to Jermane. The first exchange is usually a short conversation about your company and your timing, with no expectation that it goes further.</p>
+          <!-- TODO: Client confirmation required: whether to publish a response
+               time commitment. None is stated here because none is confirmed. -->
+
+          <h2>Confidentiality</h2>
+          <p>Inquiries are treated as private. Nothing is shared with employees, customers, or competitors, and there is no mailing list.</p>
+
+          <h2>For brokers and advisors</h2>
+          <p>Introductions from business brokers, accountants, and attorneys are welcome. Use the form or email directly and note the relationship.</p>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="wordmark">Greenday <span class="wordmark-accent">Venture</span></span>
+        <p>Atlanta, Georgia</p>
+      </div>
+      <div class="footer-nav">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="criteria.html">What We Look For</a></li>
+          <li><a href="process.html">Our Process</a></li>
+          <li><a href="contact.html">Start a Conversation</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h2>Contact</h2>
+        <p><a href="mailto:greenday.venture@gmail.com">greenday.venture@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; <span data-current-year>2026</span> Greenday Venture. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
