@@ -66,11 +66,11 @@
   --fs-small: 1rem;
   --fs-body: 1.075rem;
   --fs-body-lg: 1.19rem;
-  --fs-h3: clamp(1.22rem, 1.05rem + 0.6vw, 1.5rem);
-  --fs-h2: clamp(1.9rem, 1.25rem + 2.6vw, 3.4rem);
-  --fs-h1: clamp(2.3rem, 1.4rem + 4vw, 4.4rem);
-  --fs-hero: clamp(2.5rem, 1.25rem + 5.4vw, 5.5rem);
-  --fs-display: clamp(3rem, 1rem + 8.5vw, 8rem);
+  --fs-h3: clamp(1.2rem, 1.05rem + 0.55vw, 1.45rem);
+  --fs-h2: clamp(1.8rem, 1.2rem + 2.1vw, 2.9rem);
+  --fs-h1: clamp(2.15rem, 1.4rem + 2.6vw, 3.5rem);
+  --fs-hero: clamp(2.4rem, 1.3rem + 3.4vw, 4.5rem);
+  --fs-display: clamp(2.1rem, 1.1rem + 3.6vw, 4.5rem);
 
   /* Spacing */
   --sp-1: 0.25rem;
@@ -839,8 +839,8 @@ a:hover {
   color: var(--c-ivory);
   font-size: var(--fs-display);
   font-variation-settings: "opsz" 72;
-  letter-spacing: -0.028em;
-  line-height: 0.98;
+  letter-spacing: -0.022em;
+  line-height: 1.03;
   max-width: 20ch;
   margin-bottom: var(--sp-5);
 }
