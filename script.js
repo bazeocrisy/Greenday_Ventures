@@ -149,6 +149,14 @@
         }
       };
 
+      var typeField = form.elements.inquiry_type;
+      if (typeField) {
+        for (var t = 0; t < typeField.length; t += 1) {
+          if (typeField[t].checked) {
+            add('Inquiry type', typeField[t].value);
+          }
+        }
+      }
       add('Name', form.elements.name.value);
       add('Email', form.elements.email.value);
       add('Phone', form.elements.phone.value);

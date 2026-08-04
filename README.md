@@ -24,6 +24,10 @@ C:\Greenday_Ventures
 ├── criteria.html    Sectors and company qualities ("What We Look For")
 ├── process.html     General process overview
 ├── contact.html     Confidential inquiry page and form
+├── resources.html   Hub linking the three resource pages
+├── faq.html         Questions business owners often ask
+├── questions-for-buyers.html  Questions worth asking any buyer
+├── brokers.html     For brokers and professional advisors
 ├── styles.css       Single shared stylesheet
 ├── script.js        Single shared script
 ├── README.md        This file
@@ -210,6 +214,44 @@ var FORM_ENDPOINT_CONNECTED = false;
 
    to `true`. The script then stops intercepting the submit event.
 4. Test an end-to-end submission before announcing the site.
+
+## Client Review Required
+
+**Everything listed here is draft content written by the agency for Jermane to
+react to, not approved copy.** None of it should be treated as approved until he
+confirms it. Each section carries an internal HTML comment reading
+`<!-- Draft content pending Jermane Lamb's review and approval. -->`.
+
+| Item | Where | Notes |
+| --- | --- | --- |
+| Founder letter | `about.html` | ~667 words, first person. Asserts no biography, employment history, credentials, prior acquisitions or operating experience. Jermane should rewrite anything that does not sound like him. |
+| FAQ answers | `faq.html` | 12 questions. Several answers deliberately decline to promise things buyers often promise — see the softening notes below. |
+| Questions to Ask Any Buyer | `questions-for-buyers.html` | 7 groups, 28 questions. Published free with no email gate. |
+| Brokers and Advisors | `brokers.html` | Includes an explicit note that Greenday Venture is early and publishes no deal history or proof of funds. |
+| Homepage owner-decision section | `index.html` | Replaced the earlier compact version of the same section rather than duplicating the argument. |
+| Contact inquiry categories | `contact.html` | Four radio options. Confirm the wording and whether more are needed. |
+
+### Statements deliberately softened
+
+These are the places where a stronger claim would have been easy and is not
+supported. Jermane should confirm he is comfortable with the weaker version, or
+supply evidence that would justify a stronger one.
+
+- **Confidentiality** is described as an intention, and the FAQ states plainly
+  that an informal conversation is not a legal protection and that agreements
+  should be in place before sensitive information moves. No guarantee is given.
+- **Employees** — no promise that every role, wage or arrangement survives. The
+  FAQ says outright that no buyer can know that before understanding the
+  business.
+- **Company name** — framed as a decision to make with the owner, not a
+  preserved-by-default promise.
+- **Holding period** — "focused on long-term ownership", never a committed term.
+- **Financing** — no fund size, committed capital or proof of funds anywhere.
+  The brokers page says so explicitly rather than staying silent.
+- **Timelines** — the FAQ refuses to give a fixed acquisition timeline and says
+  any buyer offering one before seeing the business is guessing.
+- **Track record** — the founder letter and brokers page both state that
+  Greenday Venture is early and has no published transaction history.
 
 ## Client confirmations still required
 

@@ -48,6 +48,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="criteria.html">What We Look For</a></li>
         <li><a href="process.html">Our Process</a></li>
+        <li><a href="resources.html">Resources</a></li>
         <li class="nav-cta"><a href="contact.html" aria-current="page">Start a Conversation</a></li>
       </ul>
     </nav>
@@ -69,7 +70,7 @@
       <div class="contact-layout">
 
         <div>
-          <h2 class="visually-hidden">Inquiry form</h2>
+          <h2>What would you like to discuss?</h2>
 
           <!-- DEVELOPER NOTE ---------------------------------------------------
                This form has NO backend and NO form-service endpoint. There is
@@ -86,6 +87,16 @@
                form processing endpoint.
                ------------------------------------------------------------------ -->
           <form class="form" id="inquiry-form" novalidate>
+
+            <!-- Draft content pending Jermane Lamb's review and approval:
+                 these four inquiry categories. -->
+            <fieldset class="field field--choice">
+              <legend>Which best describes you?</legend>
+              <label class="choice"><input type="radio" name="inquiry_type" value="I own a business"> I own a business</label>
+              <label class="choice"><input type="radio" name="inquiry_type" value="I represent a business owner"> I represent a business owner</label>
+              <label class="choice"><input type="radio" name="inquiry_type" value="I am a broker or advisor"> I am a broker or advisor</label>
+              <label class="choice"><input type="radio" name="inquiry_type" value="I have a general question"> I have a general question</label>
+            </fieldset>
 
             <div class="field">
               <label for="name">Your name</label>
@@ -176,7 +187,10 @@
           <p>Inquiries are handled with care and intended to remain private. Care is taken not to disclose your interest to employees, customers, or competitors, and there is no mailing list.</p>
 
           <h2>For brokers and advisors</h2>
-          <p>Introductions from business brokers, accountants, and attorneys are welcome. Use the form or email directly and note the relationship.</p>
+          <p>Introductions from business brokers, accountants, and attorneys are welcome. There is more detail on the <a href="brokers.html">brokers and advisors page</a>.</p>
+
+          <h2>Before you write</h2>
+          <p>You may find your question already answered in the <a href="faq.html">owner questions</a>, and the <a href="questions-for-buyers.html">buyer question guide</a> is worth reading before any conversation.</p>
         </aside>
 
       </div>
@@ -200,6 +214,14 @@
           <li><a href="criteria.html">What We Look For</a></li>
           <li><a href="process.html">Our Process</a></li>
           <li><a href="contact.html">Start a Conversation</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="faq.html">Owner Questions</a></li>
+          <li><a href="questions-for-buyers.html">Questions to Ask Any Buyer</a></li>
+          <li><a href="brokers.html">Brokers and Advisors</a></li>
         </ul>
       </div>
       <div class="footer-contact">
