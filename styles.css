@@ -364,11 +364,14 @@ a:hover {
 }
 
 .section-head {
-  max-width: var(--measure);
+  max-width: 48rem;
   margin-bottom: var(--sp-7);
 }
 
+/* Body copy inside a section head keeps the readable measure; only the heading
+   gets the extra width. */
 .section-head p {
+  max-width: var(--measure);
   margin-bottom: 0;
 }
 
@@ -1155,6 +1158,11 @@ a:hover {
   border-top: 1px solid var(--rule-light);
 }
 
+.process-steps > li h2 {
+  font-size: clamp(1.45rem, 1.1rem + 1.1vw, 2rem);
+  margin-bottom: var(--sp-3);
+}
+
 .process-steps > li::before {
   content: counter(pstep, decimal-leading-zero);
   font-family: var(--font-body);
@@ -1311,6 +1319,11 @@ a:hover {
   align-items: start;
 }
 
+.contact-layout > div > h2:first-child {
+  font-size: clamp(1.55rem, 1.15rem + 1.4vw, 2.25rem);
+  margin-bottom: var(--sp-6);
+}
+
 .contact-aside p {
   font-size: var(--fs-small);
 }
@@ -1411,8 +1424,8 @@ a:hover {
 .choice {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  min-height: 40px;
+  gap: 0.7rem;
+  min-height: 44px;
   font-size: var(--fs-small);
   font-weight: 400;
   color: var(--text-body);
@@ -1421,7 +1434,9 @@ a:hover {
 }
 
 .choice input {
-  width: auto;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
   margin: 0;
   accent-color: var(--c-green-700);
 }
@@ -1528,11 +1543,24 @@ a:hover {
   content: "";
   position: absolute;
   left: 0.15rem;
-  top: 1.35em;
   width: 6px;
   height: 6px;
   background-color: var(--accent);
   transform: rotate(45deg);
+}
+
+/* Each list has different padding and type size, so the marker is aligned to
+   the optical centre of its own first line rather than shared. */
+.considerations li::before {
+  top: calc(var(--sp-4) + 0.5em - 3px);
+}
+
+.qgroup-list li::before {
+  top: calc(var(--sp-3) + 0.5em - 3px);
+}
+
+.sector-list li::before {
+  top: calc(0.85rem + 0.5em - 3px);
 }
 
 /* 404 — the plumb line drawn at full scale, as the page's subject rather than
