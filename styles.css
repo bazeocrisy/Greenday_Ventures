@@ -415,24 +415,43 @@ a:hover {
 /* Logo.
    Assets/greenday-venture-logo.svg — true vector, so it stays sharp at any size
    and on any display density. Displayed 175px wide on desktop, 140px on mobile,
-   160px in the footer; height always follows the natural 2.75:1 proportion and
-   is never set independently.
+   160px in the footer; height always follows the natural 4:1 proportion and
+   is never set independently. The SVG's natural ratio is 960:240 = 4:1.
    TODO: Client confirmation required: this is still a concept mark, not an
    approved logo. */
 .site-logo-link {
   display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: visible;
   line-height: 0;
   border-radius: var(--radius-sm);
 }
 
+/* Width only. Height stays auto so the SVG keeps its own 4:1 frame — never set
+   a fixed height, aspect-ratio or object-fit: cover here, any of which would
+   crop the wordmark. */
 .site-logo {
+  display: block;
   width: 140px;
   height: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .footer-logo {
+  display: block;
   width: 160px;
   height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Defensive: nothing here was clipping, but the header must never gain a
+   hidden overflow that would cut the mark. */
+.site-header,
+.site-header .wrap {
+  overflow: visible;
 }
 
 /* Text wordmark retained as a fallback if the logo image is ever removed. */

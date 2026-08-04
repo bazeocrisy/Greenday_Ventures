@@ -106,11 +106,13 @@ files are superseded.
 **What the web copy changes.** `greenday-venture-logo.svg` differs from the
 supplied file in exactly two ways, neither of which touches the artwork:
 
-1. **viewBox.** The supplied frame is `0 0 900 240`, but the artwork only
-   occupies roughly x 69–545 — about 40% of the width was empty space to the
-   right, which would have pushed the mark left and opened a gap before the
-   navigation. The web copy uses `62 18 512 186`, framing the artwork with a
-   small margin plus headroom for font width variation.
+1. **viewBox.** The supplied frame is `0 0 900 240`; the web copy uses
+   `0 0 960 240` — the original frame plus 60 units of right-hand padding.
+   Artwork coordinates are untouched, so the extra space lands entirely on the
+   right. An earlier attempt tightened the frame to `62 18 512 186` to remove
+   the empty space; that clipped the final letter of "Greenday" on machines
+   whose substituted serif renders wider than the one it was measured against.
+   The generous frame is deliberate insurance against that.
 2. **Font fallbacks.** `'Liberation Serif'`, `'DejaVu Serif'`, `'Liberation Sans'`
    and `'DejaVu Sans'` were appended to the existing stacks. Georgia and Arial
    still win wherever they are installed.
@@ -129,7 +131,12 @@ letterforms will differ slightly.
 Create Outlines; Figma: Flatten). That makes the logo render identically
 everywhere and removes the font dependency entirely. The frame in the web copy
 already carries enough right-hand headroom that a wider fallback font will not
-clip.
+clip: measured against the widest serif available, "Greenday" ends at x 623
+inside a 960-wide frame, leaving 337 units spare.
+
+Once the text is outlined, the frame can safely be tightened to the artwork
+(roughly `viewBox="60 18 500 190"`), which would make the mark render noticeably
+larger at the same display width. Until then the padding stays.
 
 **To replace it with the client's official logo:**
 
@@ -161,7 +168,7 @@ global wrapper.
 | --- | --- | --- |
 | `Assets/hero-we-service.jpg` | Homepage hero (right side of the split layout) | Editorial support imagery only. It is **not** Jermane Lamb, not a client, and not an acquisition. Nothing on the site may imply otherwise. |
 | `Assets/hero-we-service.png` | Nothing — preserved original | 2 MB. Kept unmodified. To load it instead of the JPEG, change the `src` in the hero `<figure>` in `index.html`. |
-| `Assets/greenday-venture-logo.svg` | Header **and** footer of all five pages | Vector. Displayed 175px wide on desktop, 140px on mobile, 160px in the footer. Height always follows the natural 2.75:1 proportion — never set it independently. |
+| `Assets/greenday-venture-logo.svg` | Header **and** footer of all five pages | Vector. Displayed 175px wide on desktop, 140px on mobile, 160px in the footer. Natural ratio is **960:240 = 4:1**. Height always follows — never set a fixed height, `aspect-ratio` or `object-fit: cover` on the logo, any of which crops the wordmark. |
 | `Assets/greenday-venture-icon.svg` | Favicon on all five pages | 256×256 icon mark, used exactly as supplied. |
 | `Assets/greenday-venture-logo-source.svg` | Nothing — preserved original | The supplied file, untouched. |
 | `Assets/logo.png`, `Assets/greenday-venture-logo.png` | Nothing — superseded | The earlier raster logo and its processed copy. Kept for reference; safe to delete. |
