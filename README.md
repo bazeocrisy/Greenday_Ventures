@@ -217,10 +217,24 @@ var FORM_ENDPOINT_CONNECTED = false;
 
 ## Client Review Required
 
-**Everything listed here is draft content written by the agency for Jermane to
-react to, not approved copy.** None of it should be treated as approved until he
-confirms it. Each section carries an internal HTML comment reading
+**All newly drafted substantive content on this site requires Jermane Lamb's
+approval before publication — not only the founder letter.** Everything in the
+table below was written by the agency for him to react to and revise. None of it
+is approved copy. Each section carries an internal HTML comment reading
 `<!-- Draft content pending Jermane Lamb's review and approval. -->`.
+
+Items requiring approval before publication:
+
+1. Founder letter
+2. FAQ answers
+3. Buyer-question guide
+4. Brokers and advisors page
+5. Homepage owner-decision section
+6. Financing language
+7. Employee-transition language
+8. Company-name language
+9. Seller-involvement language
+10. Contact inquiry categories
 
 | Item | Where | Notes |
 | --- | --- | --- |
@@ -230,6 +244,21 @@ confirms it. Each section carries an internal HTML comment reading
 | Brokers and Advisors | `brokers.html` | Includes an explicit note that Greenday Venture is early and publishes no deal history or proof of funds. |
 | Homepage owner-decision section | `index.html` | Replaced the earlier compact version of the same section rather than duplicating the argument. |
 | Contact inquiry categories | `contact.html` | Four radio options. Confirm the wording and whether more are needed. |
+
+### Qualified disclaimers that must stay
+
+These are honest, case-specific qualifications rather than weaknesses. Do not
+delete them in a later pass, and do not let them harden into promises:
+
+- **Confidentiality** — an intention, with a clear statement that an informal
+  conversation is not a legal protection and agreements should precede sensitive
+  information.
+- **Employee outcomes** — no promise that every role, wage or arrangement
+  survives.
+- **Company-name preservation** — a decision made with the owner, not a default.
+- **Transaction timing** — no fixed timeline.
+- **Seller involvement** — structured individually, from a short handover to a
+  longer advisory role.
 
 ### Statements deliberately softened
 
@@ -246,12 +275,16 @@ supply evidence that would justify a stronger one.
 - **Company name** — framed as a decision to make with the owner, not a
   preserved-by-default promise.
 - **Holding period** — "focused on long-term ownership", never a committed term.
-- **Financing** — no fund size, committed capital or proof of funds anywhere.
-  The brokers page says so explicitly rather than staying silent.
+- **Financing** — no fund size, committed capital or financing guarantee is
+  claimed anywhere. The brokers page states that financing capability and
+  transaction structure can be discussed directly when an opportunity appears
+  aligned with the acquisition focus. It does not announce what the firm lacks.
 - **Timelines** — the FAQ refuses to give a fixed acquisition timeline and says
   any buyer offering one before seeing the business is guessing.
-- **Track record** — the founder letter and brokers page both state that
-  Greenday Venture is early and has no published transaction history.
+- **Track record** — acknowledged once only, in the founder letter, framed as a
+  firm that is focused, deliberate and early in its growth. It is not repeated
+  on the brokers page or anywhere else, and no page enumerates what the firm
+  does not yet have.
 
 ## Client confirmations still required
 
