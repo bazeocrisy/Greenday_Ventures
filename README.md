@@ -30,6 +30,8 @@ C:\Greenday_Ventures
 ├── .gitignore       (preserve if present)
 ├── .nojekyll        (preserve if present — keep it for GitHub Pages)
 └── Assets\
+    ├── logo.png                   Original logo file (preserved, unmodified)
+    ├── greenday-venture-logo.png  Cropped, transparent web copy — this is what the site loads
     ├── hero-we-service.png        Original hero photograph (2 MB, preserved)
     ├── hero-we-service.jpg        Optimised 1400px copy — this is what the site loads
     └── jermane-lamb-headshot.jpg  Founder portrait
@@ -84,26 +86,34 @@ Working values (not client-approved):
 If you replace these, re-check contrast. Body and small text should stay at or
 above 4.5:1 against its background.
 
-## How to replace the logo
+## The logo
 
-Each page currently uses a text wordmark:
+**The logo currently on the site is a concept pending client approval.** It is
+not an approved mark. Every header carries an HTML comment saying so.
 
-```html
-<a class="wordmark" href="index.html">Greenday <span class="wordmark-accent">Venture</span></a>
-```
+**File used:** `Assets/greenday-venture-logo.png` (568×215, transparent PNG).
 
-To use a real logo:
+**Where it appears:** the header of all five pages, linked to `index.html`, and
+again in the footer of all five pages.
 
-1. Save the file into `Assets\` with a lowercase, web-safe name, e.g. `logo.png`
-   or `logo.svg`.
-2. In **all five** HTML files, replace the wordmark text with:
+**How it was prepared.** The source `Assets/logo.png` is preserved unchanged. The
+web copy is the same artwork with two non-destructive changes: the surrounding
+blank page was cropped away (about 68% of the source), and the solid white
+background was made transparent so the mark sits directly on the dark green
+header rather than in a white box. No colour, shape, proportion or letterform
+was altered. The artwork happens to read better on the dark header than on white,
+because the "Greenday" lettering is a pale cream-green.
 
-```html
-<a class="wordmark" href="index.html"><img src="Assets/logo.png" alt="Greenday Venture" width="180" height="36"></a>
-```
+**To replace it with the client's official logo:**
 
-3. Set `width` and `height` to the real pixel dimensions so the layout does not
-   shift. Do not stretch or distort the mark.
+1. Save the approved file into `Assets\` with a lowercase, web-safe name.
+2. In **all five** HTML files, update the two `src` attributes (header and
+   footer) and the `width`/`height` attributes to the new file's real pixel
+   dimensions.
+3. Delete the "Temporary Greenday Venture logo concept" comment in each header.
+4. If the display size needs to change, edit `.site-logo` and `.footer-logo` in
+   `styles.css` — set `width` only and leave `height: auto`, so proportions stay
+   correct.
 
 ## Images
 
@@ -111,6 +121,8 @@ To use a real logo:
 | --- | --- | --- |
 | `Assets/hero-we-service.jpg` | Homepage hero (right side of the split layout) | Editorial support imagery only. It is **not** Jermane Lamb, not a client, and not an acquisition. Nothing on the site may imply otherwise. |
 | `Assets/hero-we-service.png` | Nothing — preserved original | 2 MB. Kept unmodified. To load it instead of the JPEG, change the `src` in the hero `<figure>` in `index.html`. |
+| `Assets/greenday-venture-logo.png` | Header **and** footer of all five pages | 568×215 transparent PNG. Displayed 180px wide on desktop, 140px on mobile, 160px in the footer. Height always follows naturally — never set it independently. |
+| `Assets/logo.png` | Nothing — preserved original | 1344×896. Despite the `.png` extension the file is actually JPEG data with a solid white background, and roughly 68% of it is blank page. Kept untouched. |
 | `Assets/jermane-lamb-headshot.jpg` | Homepage founder preview and `about.html` | Deliberately kept out of the hero. |
 
 Both images carry explicit `width` and `height` attributes so no layout shift
@@ -170,6 +182,7 @@ var FORM_ENDPOINT_CONNECTED = false;
 - Final domain name (for canonical and Open Graph URLs)
 - Whether a privacy policy page is needed
 - Approved LinkedIn or other public profile links
+- **Approval of the logo**, which is currently a concept, not an official mark
 - Licence and usage rights for the hero photograph
 - Whether the softened confidentiality wording ("intended to remain private",
   "handled with care") is acceptable, or whether Jermane wants firmer language

@@ -146,6 +146,7 @@ hr {
 }
 
 .section--dark :focus-visible,
+.site-header :focus-visible,
 .hero :focus-visible,
 .page-head :focus-visible,
 .site-footer :focus-visible {
@@ -396,14 +397,33 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: var(--sp-4);
-  min-height: 62px;
-  padding-block: var(--sp-3);
+  min-height: 0;
+  padding-block: var(--sp-2);
 }
 
-/* Wordmark.
-   TODO: Client confirmation required: official logo file. When an approved
-   logo exists, replace the .wordmark text in each page header with an <img>
-   using a relative path such as Assets/logo.png and meaningful alt text. */
+/* Logo.
+   Assets/greenday-venture-logo.png is a transparent, tightly cropped web copy
+   of Assets/logo.png. Displayed at 180px wide on desktop and 140px on mobile;
+   height follows the natural 2.64:1 proportion, never set independently.
+   TODO: Client confirmation required: this is a concept logo, not an approved
+   mark. */
+.site-logo-link {
+  display: inline-flex;
+  line-height: 0;
+  border-radius: var(--radius-sm);
+}
+
+.site-logo {
+  width: 140px;
+  height: auto;
+}
+
+.footer-logo {
+  width: 160px;
+  height: auto;
+}
+
+/* Text wordmark retained as a fallback if the logo image is ever removed. */
 .wordmark {
   font-family: var(--font-display);
   font-size: 1.3rem;
@@ -1323,13 +1343,17 @@ noscript .form-status {
 }
 
 @media (min-width: 900px) {
+  .site-logo {
+    width: 180px;
+  }
+
   .hero-grid {
     grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
     gap: clamp(2rem, 4vw, 3.75rem);
   }
 
   .hero-figure img {
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 3 / 2;
   }
 
   .site-nav {
@@ -1370,6 +1394,20 @@ noscript .form-status {
 @media (min-width: 1100px) {
   :root {
     --fs-body: 1.11rem;
+  }
+}
+
+/* Above 1200px the hero photograph breaks out of the content column and runs
+   out to the page's outer margin, so its right edge lines up with the gutter
+   the rest of the site uses. The text column stays on the shared grid. */
+@media (min-width: 1200px) {
+  .hero-figure {
+    margin-right: calc(-1 * (100vw - var(--wrap)) / 2);
+  }
+
+  .hero-figure img {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    border-right: 0;
   }
 }
 
