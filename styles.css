@@ -762,7 +762,7 @@ a:hover {
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: 46% center;
+  object-position: 38% center;
   border: 1px solid var(--rule-accent-on-dark);
 }
 

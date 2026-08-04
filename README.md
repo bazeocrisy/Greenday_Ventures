@@ -190,7 +190,8 @@ fallback. The homepage preloads the hero image for LCP.
 
 | File | Used on | Notes |
 | --- | --- | --- |
-| `Assets/hero-we-service.jpg` | Homepage hero (right side of the split layout) | Editorial support imagery only. It is **not** Jermane Lamb, not a client, and not an acquisition. Nothing on the site may imply otherwise. |
+| `Assets/hero-owner-decision.jpg` | Homepage hero (right side of the split layout) | 1408x768. Illustrative only — **not** Jermane Lamb, not clients, not an acquisition. **This image was produced with an AI generation tool.** See the note below. |
+| `Assets/hero-we-service.jpg` | Nothing — previous hero, kept as an alternative | 1400x1052. Swap the `src` in the hero `<figure>` in `index.html` to use it again. |
 | `Assets/hero-we-service.png` | Nothing — preserved original | 2 MB. Kept unmodified. To load it instead of the JPEG, change the `src` in the hero `<figure>` in `index.html`. |
 | `Assets/greenday-venture-logo.svg` | Header **and** footer of all five pages | Vector. Displayed 175px wide on desktop, 140px on mobile, 160px in the footer. Natural ratio is **960:240 = 4:1**. Height always follows — never set a fixed height, `aspect-ratio` or `object-fit: cover` on the logo, any of which crops the wordmark. |
 | `Assets/greenday-venture-icon.svg` | Favicon on all five pages | 256×256 icon mark, used exactly as supplied. |
@@ -201,8 +202,22 @@ fallback. The homepage preloads the hero image for LCP.
 Both images carry explicit `width` and `height` attributes so no layout shift
 occurs while they load.
 
-**TODO: Client confirmation required — licence and usage rights for the hero
-photograph** before the site is promoted publicly.
+### The hero image is AI-generated
+
+**TODO: Client confirmation required.** The current hero was produced with an AI
+image tool. Two things to weigh before publication:
+
+1. Greenday Venture's whole position is that it does not exaggerate. A synthetic
+   photograph of people who do not exist sits awkwardly beside that, and AI
+   images are increasingly recognisable to viewers.
+2. AI images frequently contain artefacts. This one has unreadable text on the
+   wall plaques and certificate at the right-hand edge; the crop
+   (`object-position: 38% center`) is set to push most of that out of frame, but
+   check it at full width before publishing.
+
+The image is a strong emotional fit and is fine as a placeholder. The
+recommendation remains a commissioned shoot of a real Atlanta home-service
+company.
 
 ## How to connect the inquiry form later
 
