@@ -72,7 +72,139 @@
   }
 
   /* ------------------------------------------------------------------------
-     3. Inquiry form
+     3. Buyer worksheet (questions-for-buyers.html)
+     Notes and ticks are kept in this browser only. Nothing is transmitted.
+     If storage is unavailable the worksheet still works for the session.
+     ------------------------------------------------------------------------ */
+
+  var worksheet = document.querySelector('.worksheet');
+
+  if (worksheet) {
+    var STORE_KEY = 'gv-buyer-worksheet-v1';
+    var checks = worksheet.querySelectorAll('[data-q]');
+    var notes = worksheet.querySelectorAll('[data-note]');
+    var progress = worksheet.querySelector('[data-progress]');
+
+    var readStore = function () {
+      try {
+        return JSON.parse(window.localStorage.getItem(STORE_KEY)) || {};
+      } catch (err) {
+        return {};
+      }
+    };
+
+    var writeStore = function (data) {
+      try {
+        window.localStorage.setItem(STORE_KEY, JSON.stringify(data));
+      } catch (err) {
+        /* Private browsing or storage disabled: the worksheet still works,
+           it just will not survive a reload. */
+      }
+    };
+
+    var autoGrow = function (el) {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    };
+
+    var updateProgress = function () {
+      var done = 0;
+      for (var i = 0; i < checks.length; i += 1) {
+        if (checks[i].checked) { done += 1; }
+      }
+      if (progress) {
+        progress.textContent = done + ' of ' + checks.length + ' marked';
+      }
+    };
+
+    var save = function () {
+      var data = {};
+      var i;
+      for (i = 0; i < checks.length; i += 1) {
+        if (checks[i].checked) { data[checks[i].id] = true; }
+      }
+      for (i = 0; i < notes.length; i += 1) {
+        if (notes[i].value.trim()) { data[notes[i].id] = notes[i].value; }
+      }
+      writeStore(data);
+    };
+
+    var restore = function () {
+      var data = readStore();
+      var i;
+      for (i = 0; i < checks.length; i += 1) {
+        if (data[checks[i].id]) { checks[i].checked = true; }
+      }
+      for (i = 0; i < notes.length; i += 1) {
+        if (data[notes[i].id]) { notes[i].value = data[notes[i].id]; }
+        autoGrow(notes[i]);
+      }
+      updateProgress();
+    };
+
+    worksheet.addEventListener('change', function (event) {
+      if (event.target.hasAttribute('data-q')) {
+        updateProgress();
+        save();
+      }
+    });
+
+    worksheet.addEventListener('input', function (event) {
+      if (event.target.hasAttribute('data-note')) {
+        autoGrow(event.target);
+        save();
+      }
+    });
+
+    var printBtn = worksheet.querySelector('[data-print]');
+    if (printBtn) {
+      printBtn.addEventListener('click', function () { window.print(); });
+    }
+
+    var emailBtn = worksheet.querySelector('[data-email]');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', function () {
+        var lines = ['Questions worth asking any buyer', ''];
+        var groups = worksheet.querySelectorAll('.qgroup');
+        for (var g = 0; g < groups.length; g += 1) {
+          var heading = groups[g].querySelector('h2');
+          lines.push((heading ? heading.textContent : 'Section').toUpperCase());
+          var items = groups[g].querySelectorAll('.qitem');
+          for (var i = 0; i < items.length; i += 1) {
+            var box = items[i].querySelector('[data-q]');
+            var label = items[i].querySelector('.qitem-label');
+            var note = items[i].querySelector('[data-note]');
+            lines.push((box && box.checked ? '[x] ' : '[ ] ') + label.textContent.trim());
+            if (note && note.value.trim()) {
+              lines.push('    ' + note.value.trim().replace(/\n/g, '\n    '));
+            }
+          }
+          lines.push('');
+        }
+        lines.push('Source: Greenday Venture, greenday.venture@gmail.com');
+        window.location.href = 'mailto:?subject=' +
+          encodeURIComponent('Questions worth asking any buyer') +
+          '&body=' + encodeURIComponent(lines.join('\n'));
+      });
+    }
+
+    var clearBtn = worksheet.querySelector('[data-clear]');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        if (!window.confirm('Clear every tick and note on this worksheet?')) { return; }
+        var i;
+        for (i = 0; i < checks.length; i += 1) { checks[i].checked = false; }
+        for (i = 0; i < notes.length; i += 1) { notes[i].value = ''; autoGrow(notes[i]); }
+        try { window.localStorage.removeItem(STORE_KEY); } catch (err) { /* ignore */ }
+        updateProgress();
+      });
+    }
+
+    restore();
+  }
+
+  /* ------------------------------------------------------------------------
+     4. Inquiry form
      IMPORTANT: no endpoint is connected. The form never reports a successful
      submission. It validates, then tells the visitor plainly that the form is
      not wired up yet and offers a pre-filled email instead.

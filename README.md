@@ -28,6 +28,7 @@ C:\Greenday_Ventures
 ├── faq.html         Questions business owners often ask
 ├── questions-for-buyers.html  Questions worth asking any buyer
 ├── brokers.html     For brokers and professional advisors
+├── 404.html         Not-found page (GitHub Pages serves this automatically)
 ├── styles.css       Single shared stylesheet
 ├── script.js        Single shared script
 ├── README.md        This file
@@ -166,6 +167,25 @@ is 4:3, which matches the source image's own proportion almost exactly, so the
 full van lettering stays visible. Below 900px the hero stacks and reverts to the
 global wrapper.
 
+## Assets and performance
+
+Originals are **no longer stored in this repository**. The 2 MB hero PNG and the
+two superseded raster logos were moved out to keep the repo and every page load
+light; keep your own copies outside the project. The `Assets` folder is now
+384 KB in total.
+
+Generated files:
+
+| File | Purpose |
+| --- | --- |
+| `og-image.png` | 1200x630 social share card, referenced by every page |
+| `og-image-source.html` | Source for the share card. Open it, screenshot at 1200x630, and replace the PNG to regenerate — **do this on a machine with Georgia installed**, since the card was rendered with a fallback serif |
+| `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192.png` | Favicon set generated from the icon SVG |
+
+The Google Fonts stylesheet is now loaded with `rel="preload"` and applied on
+load, so a slow font server cannot block first paint, with a `<noscript>`
+fallback. The homepage preloads the hero image for LCP.
+
 ## Images
 
 | File | Used on | Notes |
@@ -214,6 +234,16 @@ var FORM_ENDPOINT_CONNECTED = false;
 
    to `true`. The script then stops intercepting the submit event.
 4. Test an end-to-end submission before announcing the site.
+
+## The buyer worksheet
+
+`questions-for-buyers.html` is an interactive worksheet: owners can tick each
+question, type the answer they were given, print the result, or email it to
+themselves. Ticks and notes are stored in `localStorage` under
+`gv-buyer-worksheet-v1` — **in the visitor's own browser only. Nothing is
+transmitted, and Greenday Venture never sees any of it.** If storage is
+unavailable the worksheet still works for the session. Without JavaScript it
+degrades to plain checkboxes and text fields that work on screen and on paper.
 
 ## Client Review Required
 

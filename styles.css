@@ -47,9 +47,9 @@
   --text-on-dark-soft: var(--c-sage-400);
   --accent: var(--c-bronze);
   --accent-on-dark: var(--c-bronze-light);
-  --rule-light: rgba(35, 40, 42, 0.16);
+  --rule-light: rgba(35, 40, 42, 0.22);
   --rule-strong: rgba(35, 40, 42, 0.28);
-  --rule-on-dark: rgba(246, 243, 234, 0.18);
+  --rule-on-dark: rgba(246, 243, 234, 0.26);
   --rule-accent-on-dark: rgba(194, 145, 79, 0.75);
   --focus-ring: var(--c-bronze);
   --focus-ring-on-dark: var(--c-bronze-light);
@@ -66,10 +66,11 @@
   --fs-small: 1rem;
   --fs-body: 1.075rem;
   --fs-body-lg: 1.19rem;
-  --fs-h3: clamp(1.22rem, 1.05rem + 0.6vw, 1.45rem);
-  --fs-h2: clamp(1.7rem, 1.3rem + 1.7vw, 2.5rem);
-  --fs-h1: clamp(2.1rem, 1.5rem + 2.6vw, 3.1rem);
-  --fs-hero: clamp(2.35rem, 1.4rem + 4.1vw, 4.05rem);
+  --fs-h3: clamp(1.22rem, 1.05rem + 0.6vw, 1.5rem);
+  --fs-h2: clamp(1.9rem, 1.25rem + 2.6vw, 3.4rem);
+  --fs-h1: clamp(2.3rem, 1.4rem + 4vw, 4.4rem);
+  --fs-hero: clamp(2.5rem, 1.25rem + 5.4vw, 5.5rem);
+  --fs-display: clamp(3rem, 1rem + 8.5vw, 8rem);
 
   /* Spacing */
   --sp-1: 0.25rem;
@@ -164,6 +165,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
+  font-variation-settings: "opsz" 60;
   color: var(--text-strong);
   font-weight: 500;
   line-height: 1.14;
@@ -182,6 +184,8 @@ h2 {
 
 h3 {
   font-size: var(--fs-h3);
+  font-variation-settings: "opsz" 16;
+  letter-spacing: -0.004em;
   line-height: 1.25;
   margin-bottom: var(--sp-2);
 }
@@ -764,6 +768,8 @@ a:hover {
 
 .hero h1 {
   font-size: var(--fs-hero);
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.022em;
   color: var(--c-ivory);
   line-height: 1.06;
   margin-bottom: var(--sp-5);
@@ -831,8 +837,10 @@ a:hover {
 
 .statement-headline {
   color: var(--c-ivory);
-  font-size: clamp(1.9rem, 1.2rem + 2.6vw, 3.15rem);
-  line-height: 1.1;
+  font-size: var(--fs-display);
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.028em;
+  line-height: 0.98;
   max-width: 20ch;
   margin-bottom: var(--sp-5);
 }
@@ -883,11 +891,14 @@ a:hover {
   outline-color: var(--focus-ring-on-dark);
 }
 
-/* Section 4 — trust pillars */
+/* Section 4 — trust pillars.
+   .section--split breaks the page's repeated single-column stack: the heading
+   takes a narrow column of its own and stays in place while the content moves. */
 .pillars {
   grid-template-columns: 1fr;
 }
 
+/* Section 5 — sector list at display scale rather than body scale. */
 .pillar {
   padding-top: var(--sp-4);
   border-top: 1px solid var(--rule-strong);
@@ -899,7 +910,6 @@ a:hover {
   line-height: 1.6;
 }
 
-/* Section 5 — industries */
 .sector-list {
   list-style: none;
   margin: 0;
@@ -911,10 +921,13 @@ a:hover {
 }
 
 .sector-list li {
-  padding: 0.8rem 0;
+  padding: 0.85rem 0;
   border-bottom: 1px solid var(--rule-light);
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: clamp(1.35rem, 1rem + 1.3vw, 2.1rem);
+  font-variation-settings: "opsz" 40;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
   color: var(--text-strong);
 }
 
@@ -1501,6 +1514,279 @@ a:hover {
   max-width: none;
 }
 
+/* Plumb-bob marker, reused wherever a list carries real weight. */
+.considerations li,
+.qgroup-list li,
+.sector-list li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.considerations li::before,
+.qgroup-list li::before,
+.sector-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 1.35em;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent);
+  transform: rotate(45deg);
+}
+
+/* 404 — the plumb line drawn at full scale, as the page's subject rather than
+   its margin. */
+.error-page {
+  padding-block: clamp(3.5rem, 9vw, 7rem);
+}
+
+.error-grid {
+  display: grid;
+  gap: var(--sp-7);
+  align-items: center;
+}
+
+.error-page h1 {
+  color: var(--c-ivory);
+  max-width: 14ch;
+}
+
+.error-links {
+  list-style: none;
+  margin: var(--sp-7) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  max-width: 34rem;
+  border-top: 1px solid var(--rule-on-dark);
+}
+
+.error-links li {
+  border-bottom: 1px solid var(--rule-on-dark);
+}
+
+.error-links a {
+  display: block;
+  padding: 0.8rem 0;
+  color: var(--c-sage-200);
+  text-decoration: none;
+  font-size: var(--fs-small);
+}
+
+.error-links a:hover {
+  color: var(--c-ivory);
+}
+
+.plumb {
+  margin: 0;
+  justify-self: center;
+}
+
+.plumb svg {
+  width: clamp(80px, 22vw, 130px);
+  height: auto;
+}
+
+.plumb line {
+  stroke: var(--c-sage-400);
+  stroke-width: 1.5;
+  opacity: 0.5;
+}
+
+.plumb rect,
+.plumb polygon {
+  fill: none;
+  stroke: var(--accent-on-dark);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.plumb .plumb-dot {
+  fill: var(--accent-on-dark);
+  stroke: none;
+}
+
+/* ==========================================================================
+   Buyer worksheet (questions-for-buyers.html)
+   Ordinary checkboxes and text fields. JavaScript adds persistence, a running
+   count, print and email; without it the page still works, on screen or paper.
+   ========================================================================== */
+
+/* .worksheet is the JS hook for the worksheet section. */
+.worksheet-tools {
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding-bottom: var(--sp-5);
+  margin-bottom: var(--sp-7);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.js .worksheet-tools {
+  display: flex;
+}
+
+.worksheet-progress {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-strong);
+}
+
+.worksheet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.worksheet-actions .btn {
+  font-size: var(--fs-small);
+  padding: 0.6rem 1rem;
+}
+
+.worksheet-hint {
+  font-size: var(--fs-small);
+  max-width: 46ch;
+  margin-bottom: var(--sp-7);
+}
+
+.worksheet-list {
+  border-top: 1px solid var(--rule-light);
+}
+
+.qitem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.85rem;
+  row-gap: 0.5rem;
+  align-items: start;
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.worksheet-list .qitem {
+  padding-left: 0;
+}
+
+.worksheet-list .qitem::before {
+  content: none;
+}
+
+.qitem-check {
+  width: 20px;
+  height: 20px;
+  margin: 0.28em 0 0;
+  accent-color: var(--c-green-700);
+  flex-shrink: 0;
+}
+
+.qitem-label {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  line-height: 1.4;
+  color: var(--text-strong);
+  cursor: pointer;
+}
+
+.qitem-check:checked + .qitem-label {
+  color: var(--text-body);
+}
+
+.qitem-note {
+  grid-column: 2;
+  width: 100%;
+  font: inherit;
+  font-size: var(--fs-small);
+  color: var(--text-strong);
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px dashed var(--rule-strong);
+  border-radius: 0;
+  padding: 0.3rem 0;
+  resize: none;
+  overflow: hidden;
+  min-height: 2rem;
+}
+
+.qitem-note::placeholder {
+  color: var(--text-body);
+  opacity: 0.65;
+}
+
+.qitem-note:focus {
+  border-bottom-style: solid;
+  border-bottom-color: var(--accent);
+}
+
+/* ==========================================================================
+   Print
+   ========================================================================== */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .worksheet-tools,
+  .worksheet-hint,
+  .section--dark,
+  .btn-row {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .section,
+  .page-head {
+    background: #fff !important;
+    color: #000 !important;
+    padding-block: 0.5rem;
+  }
+
+  .page-head h1,
+  .page-head .lede,
+  h1, h2, h3 {
+    color: #000 !important;
+  }
+
+  .section::before,
+  .page-head::before,
+  .marked::before,
+  .marked::after {
+    display: none !important;
+  }
+
+  .wrap {
+    max-width: none;
+    padding: 0;
+  }
+
+  .qgroup {
+    break-inside: avoid;
+    max-width: none;
+  }
+
+  .qitem {
+    break-inside: avoid;
+    padding: 0.35rem 0;
+  }
+
+  .qitem-note {
+    border-bottom: 1px solid #999;
+    min-height: 1.4rem;
+  }
+
+  a[href]::after {
+    content: "";
+  }
+}
+
 /* ==========================================================================
    Utilities
    ========================================================================== */
@@ -1693,14 +1979,37 @@ noscript .form-status {
     display: none;
   }
 
+  .error-grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--sp-9);
+  }
+
   .contact-layout {
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
     gap: var(--sp-9);
   }
 
   .pillars {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--sp-6);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-7) var(--sp-6);
+  }
+
+  .section--split .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .section--split .section-head {
+    margin-bottom: 0;
+    position: sticky;
+    top: 7rem;
+  }
+
+  .sector-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--sp-9);
   }
 
   .sector-list {

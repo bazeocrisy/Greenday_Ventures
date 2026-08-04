@@ -14,12 +14,24 @@
 <meta property="og:title" content="Questions Worth Asking Any Buyer | Greenday Venture">
 <meta property="og:description" content="The questions worth asking any potential buyer, whether or not you ever speak to Greenday Venture.">
 <meta property="og:url" content="https://bazeocrisy.github.io/Greenday_Ventures/questions-for-buyers.html">
+<meta property="og:image" content="https://bazeocrisy.github.io/Greenday_Ventures/Assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Greenday Venture — a thoughtful next chapter for the business you built.">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Stylesheet is fetched at high priority, then applied once loaded, so a slow
+     font server cannot block first paint. The noscript copy keeps it working
+     without JavaScript. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="Assets/greenday-venture-icon.svg" type="image/svg+xml">
+<link rel="icon" href="Assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="Assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="Assets/apple-touch-icon.png">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -68,84 +80,236 @@
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section section--alt worksheet">
     <div class="wrap">
+      <!-- Progressive enhancement: without JavaScript these stay as ordinary
+           checkboxes and text fields that still work on paper. The toolbar is
+           only shown when JavaScript can actually drive it. -->
+      <div class="worksheet-tools">
+        <p class="worksheet-progress" role="status" aria-live="polite" data-progress>0 of 28 marked</p>
+        <div class="worksheet-actions">
+          <button class="btn btn--secondary" type="button" data-print>Print this worksheet</button>
+          <button class="btn btn--secondary" type="button" data-email>Email it to myself</button>
+          <button class="btn btn--secondary" type="button" data-clear>Clear</button>
+        </div>
+      </div>
+      <p class="worksheet-hint">Tick the questions you have asked and note the answers as you go. Everything you type stays in this browser &mdash; nothing is sent anywhere.</p>
       <div class="qgroups">
       <div class="qgroup">
         <p class="qgroup-index" aria-hidden="true">01</p>
         <h2>Ownership Intentions</h2>
         <p>Start here. Everything else follows from what the buyer actually intends to do with the company.</p>
-        <ul class="qgroup-list">
-          <li>How long do you intend to own the business?</li>
-          <li>Are you acquiring the company directly, or on behalf of another investor?</li>
-          <li>Who will make major operating decisions after closing?</li>
-          <li>What could cause you to sell the company later?</li>
+        <ul class="qgroup-list worksheet-list">
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q1-1" data-q>
+            <label class="qitem-label" for="q1-1">How long do you intend to own the business?</label>
+            <label class="visually-hidden" for="q1-1-n">Notes on: How long do you intend to own the business?</label>
+            <textarea class="qitem-note" id="q1-1-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q1-2" data-q>
+            <label class="qitem-label" for="q1-2">Are you acquiring the company directly, or on behalf of another investor?</label>
+            <label class="visually-hidden" for="q1-2-n">Notes on: Are you acquiring the company directly, or on behalf of another investor?</label>
+            <textarea class="qitem-note" id="q1-2-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q1-3" data-q>
+            <label class="qitem-label" for="q1-3">Who will make major operating decisions after closing?</label>
+            <label class="visually-hidden" for="q1-3-n">Notes on: Who will make major operating decisions after closing?</label>
+            <textarea class="qitem-note" id="q1-3-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q1-4" data-q>
+            <label class="qitem-label" for="q1-4">What could cause you to sell the company later?</label>
+            <label class="visually-hidden" for="q1-4-n">Notes on: What could cause you to sell the company later?</label>
+            <textarea class="qitem-note" id="q1-4-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
         </ul>
       </div>
       <div class="qgroup">
         <p class="qgroup-index" aria-hidden="true">02</p>
         <h2>Employees and Culture</h2>
         <p>Your team will feel the transition before your customers do.</p>
-        <ul class="qgroup-list">
-          <li>What is your approach to the employees already here?</li>
-          <li>How do you evaluate leadership and key personnel?</li>
-          <li>Are compensation, benefits and roles expected to change?</li>
-          <li>How and when will employees learn about the transaction?</li>
+        <ul class="qgroup-list worksheet-list">
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q2-1" data-q>
+            <label class="qitem-label" for="q2-1">What is your approach to the employees already here?</label>
+            <label class="visually-hidden" for="q2-1-n">Notes on: What is your approach to the employees already here?</label>
+            <textarea class="qitem-note" id="q2-1-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q2-2" data-q>
+            <label class="qitem-label" for="q2-2">How do you evaluate leadership and key personnel?</label>
+            <label class="visually-hidden" for="q2-2-n">Notes on: How do you evaluate leadership and key personnel?</label>
+            <textarea class="qitem-note" id="q2-2-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q2-3" data-q>
+            <label class="qitem-label" for="q2-3">Are compensation, benefits and roles expected to change?</label>
+            <label class="visually-hidden" for="q2-3-n">Notes on: Are compensation, benefits and roles expected to change?</label>
+            <textarea class="qitem-note" id="q2-3-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q2-4" data-q>
+            <label class="qitem-label" for="q2-4">How and when will employees learn about the transaction?</label>
+            <label class="visually-hidden" for="q2-4-n">Notes on: How and when will employees learn about the transaction?</label>
+            <textarea class="qitem-note" id="q2-4-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
         </ul>
       </div>
       <div class="qgroup">
         <p class="qgroup-index" aria-hidden="true">03</p>
         <h2>Business Identity</h2>
         <p>The name, the reputation and the way the work gets done are assets, not details.</p>
-        <ul class="qgroup-list">
-          <li>Do you intend to keep the company name?</li>
-          <li>Will the company continue to operate locally?</li>
-          <li>What changes do you anticipate to branding, pricing or customer service?</li>
-          <li>How do you intend to protect the reputation the seller built?</li>
+        <ul class="qgroup-list worksheet-list">
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q3-1" data-q>
+            <label class="qitem-label" for="q3-1">Do you intend to keep the company name?</label>
+            <label class="visually-hidden" for="q3-1-n">Notes on: Do you intend to keep the company name?</label>
+            <textarea class="qitem-note" id="q3-1-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q3-2" data-q>
+            <label class="qitem-label" for="q3-2">Will the company continue to operate locally?</label>
+            <label class="visually-hidden" for="q3-2-n">Notes on: Will the company continue to operate locally?</label>
+            <textarea class="qitem-note" id="q3-2-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q3-3" data-q>
+            <label class="qitem-label" for="q3-3">What changes do you anticipate to branding, pricing or customer service?</label>
+            <label class="visually-hidden" for="q3-3-n">Notes on: What changes do you anticipate to branding, pricing or customer service?</label>
+            <textarea class="qitem-note" id="q3-3-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q3-4" data-q>
+            <label class="qitem-label" for="q3-4">How do you intend to protect the reputation the seller built?</label>
+            <label class="visually-hidden" for="q3-4-n">Notes on: How do you intend to protect the reputation the seller built?</label>
+            <textarea class="qitem-note" id="q3-4-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
         </ul>
       </div>
       <div class="qgroup">
         <p class="qgroup-index" aria-hidden="true">04</p>
         <h2>Seller Involvement</h2>
         <p>Be specific about this early. Vague answers here cause the most friction later.</p>
-        <ul class="qgroup-list">
-          <li>What role do you expect the seller to have after closing?</li>
-          <li>How long is the transition period, and what does it involve?</li>
-          <li>Will the seller remain responsible for revenue or day-to-day operations?</li>
-          <li>What happens if the seller wants to leave earlier than expected?</li>
+        <ul class="qgroup-list worksheet-list">
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q4-1" data-q>
+            <label class="qitem-label" for="q4-1">What role do you expect the seller to have after closing?</label>
+            <label class="visually-hidden" for="q4-1-n">Notes on: What role do you expect the seller to have after closing?</label>
+            <textarea class="qitem-note" id="q4-1-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q4-2" data-q>
+            <label class="qitem-label" for="q4-2">How long is the transition period, and what does it involve?</label>
+            <label class="visually-hidden" for="q4-2-n">Notes on: How long is the transition period, and what does it involve?</label>
+            <textarea class="qitem-note" id="q4-2-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q4-3" data-q>
+            <label class="qitem-label" for="q4-3">Will the seller remain responsible for revenue or day-to-day operations?</label>
+            <label class="visually-hidden" for="q4-3-n">Notes on: Will the seller remain responsible for revenue or day-to-day operations?</label>
+            <textarea class="qitem-note" id="q4-3-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q4-4" data-q>
+            <label class="qitem-label" for="q4-4">What happens if the seller wants to leave earlier than expected?</label>
+            <label class="visually-hidden" for="q4-4-n">Notes on: What happens if the seller wants to leave earlier than expected?</label>
+            <textarea class="qitem-note" id="q4-4-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
         </ul>
       </div>
       <div class="qgroup">
         <p class="qgroup-index" aria-hidden="true">05</p>
         <h2>Financial and Transaction Structure</h2>
         <p>Ask these before you are emotionally committed to a deal.</p>
-        <ul class="qgroup-list">
-          <li>How will the acquisition be financed?</li>
-          <li>Is any portion of the purchase price contingent on future performance?</li>
-          <li>What working-capital expectations will apply at closing?</li>
-          <li>What conditions could change the price between agreement and closing?</li>
+        <ul class="qgroup-list worksheet-list">
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q5-1" data-q>
+            <label class="qitem-label" for="q5-1">How will the acquisition be financed?</label>
+            <label class="visually-hidden" for="q5-1-n">Notes on: How will the acquisition be financed?</label>
+            <textarea class="qitem-note" id="q5-1-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q5-2" data-q>
+            <label class="qitem-label" for="q5-2">Is any portion of the purchase price contingent on future performance?</label>
+            <label class="visually-hidden" for="q5-2-n">Notes on: Is any portion of the purchase price contingent on future performance?</label>
+            <textarea class="qitem-note" id="q5-2-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q5-3" data-q>
+            <label class="qitem-label" for="q5-3">What working-capital expectations will apply at closing?</label>
+            <label class="visually-hidden" for="q5-3-n">Notes on: What working-capital expectations will apply at closing?</label>
+            <textarea class="qitem-note" id="q5-3-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q5-4" data-q>
+            <label class="qitem-label" for="q5-4">What conditions could change the price between agreement and closing?</label>
+            <label class="visually-hidden" for="q5-4-n">Notes on: What conditions could change the price between agreement and closing?</label>
+            <textarea class="qitem-note" id="q5-4-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
         </ul>
       </div>
       <div class="qgroup">
         <p class="qgroup-index" aria-hidden="true">06</p>
         <h2>Process and Confidentiality</h2>
         <p>Your information is valuable whether or not a transaction happens.</p>
-        <ul class="qgroup-list">
-          <li>Who exactly will have access to confidential information?</li>
-          <li>What happens to the seller's information if the deal does not close?</li>
-          <li>How will customer and employee confidentiality be handled?</li>
-          <li>Who pays for legal, accounting and diligence expenses?</li>
+        <ul class="qgroup-list worksheet-list">
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q6-1" data-q>
+            <label class="qitem-label" for="q6-1">Who exactly will have access to confidential information?</label>
+            <label class="visually-hidden" for="q6-1-n">Notes on: Who exactly will have access to confidential information?</label>
+            <textarea class="qitem-note" id="q6-1-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q6-2" data-q>
+            <label class="qitem-label" for="q6-2">What happens to the seller's information if the deal does not close?</label>
+            <label class="visually-hidden" for="q6-2-n">Notes on: What happens to the seller's information if the deal does not close?</label>
+            <textarea class="qitem-note" id="q6-2-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q6-3" data-q>
+            <label class="qitem-label" for="q6-3">How will customer and employee confidentiality be handled?</label>
+            <label class="visually-hidden" for="q6-3-n">Notes on: How will customer and employee confidentiality be handled?</label>
+            <textarea class="qitem-note" id="q6-3-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q6-4" data-q>
+            <label class="qitem-label" for="q6-4">Who pays for legal, accounting and diligence expenses?</label>
+            <label class="visually-hidden" for="q6-4-n">Notes on: Who pays for legal, accounting and diligence expenses?</label>
+            <textarea class="qitem-note" id="q6-4-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
         </ul>
       </div>
       <div class="qgroup">
         <p class="qgroup-index" aria-hidden="true">07</p>
         <h2>References and Experience</h2>
         <p>A buyer's history, including the parts that did not go well, tells you more than their pitch.</p>
-        <ul class="qgroup-list">
-          <li>Have you completed similar transactions?</li>
-          <li>Can I speak with former sellers, operators or professional advisors?</li>
-          <li>What did you learn from transactions that did not proceed?</li>
-          <li>Who will actually support the business after closing?</li>
+        <ul class="qgroup-list worksheet-list">
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q7-1" data-q>
+            <label class="qitem-label" for="q7-1">Have you completed similar transactions?</label>
+            <label class="visually-hidden" for="q7-1-n">Notes on: Have you completed similar transactions?</label>
+            <textarea class="qitem-note" id="q7-1-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q7-2" data-q>
+            <label class="qitem-label" for="q7-2">Can I speak with former sellers, operators or professional advisors?</label>
+            <label class="visually-hidden" for="q7-2-n">Notes on: Can I speak with former sellers, operators or professional advisors?</label>
+            <textarea class="qitem-note" id="q7-2-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q7-3" data-q>
+            <label class="qitem-label" for="q7-3">What did you learn from transactions that did not proceed?</label>
+            <label class="visually-hidden" for="q7-3-n">Notes on: What did you learn from transactions that did not proceed?</label>
+            <textarea class="qitem-note" id="q7-3-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
+          <li class="qitem">
+            <input class="qitem-check" type="checkbox" id="q7-4" data-q>
+            <label class="qitem-label" for="q7-4">Who will actually support the business after closing?</label>
+            <label class="visually-hidden" for="q7-4-n">Notes on: Who will actually support the business after closing?</label>
+            <textarea class="qitem-note" id="q7-4-n" rows="1" data-note placeholder="Their answer, in your words"></textarea>
+          </li>
         </ul>
       </div>
       </div>
