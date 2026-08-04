@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="186" viewBox="62 18 512 186" role="img" aria-labelledby="title desc">
+  <title id="title">Greenday Venture logo concept</title>
+  <desc id="desc">A refined leaf within an arch beside the words Greenday Venture.</desc>
+
+  <g fill="none" stroke="#C7A15A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M75 178 C68 120 83 67 132 28 C181 67 196 120 189 178"/>
+    <path d="M74 179 C98 169 116 171 132 188 C148 171 166 169 190 179"/>
+  </g>
+
+  <g fill="none" stroke="#D9E5C7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M132 159 C128 122 129 87 134 54"/>
+    <path d="M132 116 C110 101 97 81 94 61 C116 67 131 85 132 116"/>
+    <path d="M133 124 C154 111 168 92 172 72 C150 76 135 94 133 124"/>
+    <path d="M132 151 C115 145 102 133 96 118 C113 119 126 130 132 151"/>
+  </g>
+
+  <text x="235" y="105" fill="#F3F0E6"
+        font-family="Georgia, 'Times New Roman', 'Liberation Serif', 'DejaVu Serif', serif"
+        font-size="72" font-weight="700" letter-spacing="0.5">Greenday</text>
+  <text x="238" y="165" fill="#C7A15A"
+        font-family="Arial, Helvetica, 'Liberation Sans', 'DejaVu Sans', sans-serif"
+        font-size="36" font-weight="700" letter-spacing="10">VENTURE</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Greenday Venture icon concept</title>
+  <desc id="desc">A simplified leaf within an arch.</desc>
+
+  <g fill="none" stroke="#C7A15A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M42 200 C34 132 52 72 128 20 C204 72 222 132 214 200"/>
+    <path d="M42 200 C79 185 106 189 128 216 C150 189 177 185 214 200"/>
+  </g>
+
+  <g fill="none" stroke="#D9E5C7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M128 178 C122 126 124 80 130 42"/>
+    <path d="M127 119 C95 98 79 72 76 46 C107 54 126 79 127 119"/>
+    <path d="M130 131 C159 112 178 86 183 58 C151 65 131 91 130 131"/>
+  </g>
+</svg>

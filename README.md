@@ -30,8 +30,11 @@ C:\Greenday_Ventures
 ├── .gitignore       (preserve if present)
 ├── .nojekyll        (preserve if present — keep it for GitHub Pages)
 └── Assets\
-    ├── logo.png                   Original logo file (preserved, unmodified)
-    ├── greenday-venture-logo.png  Cropped, transparent web copy — this is what the site loads
+    ├── greenday-venture-logo.svg         Vector logo — this is what the site loads
+    ├── greenday-venture-logo-source.svg  Supplied vector file (preserved, unmodified)
+    ├── greenday-venture-icon.svg         Icon mark, used as the favicon
+    ├── logo.png                          Superseded raster logo (kept for reference, unused)
+    ├── greenday-venture-logo.png         Superseded raster copy (kept for reference, unused)
     ├── hero-we-service.png        Original hero photograph (2 MB, preserved)
     ├── hero-we-service.jpg        Optimised 1400px copy — this is what the site loads
     └── jermane-lamb-headshot.jpg  Founder portrait
@@ -93,27 +96,64 @@ not an approved mark. Every header carries an HTML comment saying so.
 
 **File used:** `Assets/greenday-venture-logo.png` (568×215, transparent PNG).
 
-**Where it appears:** the header of all five pages, linked to `index.html`, and
-again in the footer of all five pages.
+### About the vector files
 
-**How it was prepared.** The source `Assets/logo.png` is preserved unchanged. The
-web copy is the same artwork with two non-destructive changes: the surrounding
-blank page was cropped away (about 68% of the source), and the solid white
-background was made transparent so the mark sits directly on the dark green
-header rather than in a white box. No colour, shape, proportion or letterform
-was altered. The artwork happens to read better on the dark header than on white,
-because the "Greenday" lettering is a pale cream-green.
+**Supplied:** `greenday-venture-logo-source.svg` (900×240 wordmark) and
+`greenday-venture-icon.svg` (256×256 icon). Both are genuine vectors, so the
+logo is now sharp at any size and on any display density. The earlier raster
+files are superseded.
+
+**What the web copy changes.** `greenday-venture-logo.svg` differs from the
+supplied file in exactly two ways, neither of which touches the artwork:
+
+1. **viewBox.** The supplied frame is `0 0 900 240`, but the artwork only
+   occupies roughly x 69–545 — about 40% of the width was empty space to the
+   right, which would have pushed the mark left and opened a gap before the
+   navigation. The web copy uses `62 18 512 186`, framing the artwork with a
+   small margin plus headroom for font width variation.
+2. **Font fallbacks.** `'Liberation Serif'`, `'DejaVu Serif'`, `'Liberation Sans'`
+   and `'DejaVu Sans'` were appended to the existing stacks. Georgia and Arial
+   still win wherever they are installed.
+
+No path, colour, position or proportion was altered.
+
+### One limitation worth knowing
+
+The wordmark uses live `<text>` elements set in Georgia and Arial rather than
+outlined paths. An SVG loaded through an `<img>` tag cannot pull in a webfont,
+so it renders with whatever the viewer has installed. On Windows and macOS that
+is Georgia and Arial as intended. On Linux and Android it falls back, and the
+letterforms will differ slightly.
+
+**Ask the designer to convert the text to outlines** (Illustrator: Type →
+Create Outlines; Figma: Flatten). That makes the logo render identically
+everywhere and removes the font dependency entirely. The frame in the web copy
+already carries enough right-hand headroom that a wider fallback font will not
+clip.
 
 **To replace it with the client's official logo:**
 
 1. Save the approved file into `Assets\` with a lowercase, web-safe name.
 2. In **all five** HTML files, update the two `src` attributes (header and
-   footer) and the `width`/`height` attributes to the new file's real pixel
-   dimensions.
+   footer) and the `width`/`height` attributes to match the new file's aspect
+   ratio, plus the favicon `<link>` if the icon changes.
 3. Delete the "Temporary Greenday Venture logo concept" comment in each header.
 4. If the display size needs to change, edit `.site-logo` and `.footer-logo` in
    `styles.css` — set `width` only and leave `height: auto`, so proportions stay
    correct.
+
+## Homepage hero
+
+The hero uses its own wider container (`--wrap-hero`, 1300px) rather than the
+global `--wrap` (1080px) that every other section uses. It is anchored, not
+centred: the left edge sits exactly where the header logo sits, and the
+container extends rightward to the page gutter. Widening it symmetrically would
+have pulled the headline left of the logo and broken the masthead alignment.
+
+Desktop grid is 51/49 with a `clamp(2.25rem, 3vw, 3.5rem)` gap. The photograph
+is 4:3, which matches the source image's own proportion almost exactly, so the
+full van lettering stays visible. Below 900px the hero stacks and reverts to the
+global wrapper.
 
 ## Images
 
@@ -121,8 +161,10 @@ because the "Greenday" lettering is a pale cream-green.
 | --- | --- | --- |
 | `Assets/hero-we-service.jpg` | Homepage hero (right side of the split layout) | Editorial support imagery only. It is **not** Jermane Lamb, not a client, and not an acquisition. Nothing on the site may imply otherwise. |
 | `Assets/hero-we-service.png` | Nothing — preserved original | 2 MB. Kept unmodified. To load it instead of the JPEG, change the `src` in the hero `<figure>` in `index.html`. |
-| `Assets/greenday-venture-logo.png` | Header **and** footer of all five pages | 568×215 transparent PNG. Displayed 180px wide on desktop, 140px on mobile, 160px in the footer. Height always follows naturally — never set it independently. |
-| `Assets/logo.png` | Nothing — preserved original | 1344×896. Despite the `.png` extension the file is actually JPEG data with a solid white background, and roughly 68% of it is blank page. Kept untouched. |
+| `Assets/greenday-venture-logo.svg` | Header **and** footer of all five pages | Vector. Displayed 175px wide on desktop, 140px on mobile, 160px in the footer. Height always follows the natural 2.75:1 proportion — never set it independently. |
+| `Assets/greenday-venture-icon.svg` | Favicon on all five pages | 256×256 icon mark, used exactly as supplied. |
+| `Assets/greenday-venture-logo-source.svg` | Nothing — preserved original | The supplied file, untouched. |
+| `Assets/logo.png`, `Assets/greenday-venture-logo.png` | Nothing — superseded | The earlier raster logo and its processed copy. Kept for reference; safe to delete. |
 | `Assets/jermane-lamb-headshot.jpg` | Homepage founder preview and `about.html` | Deliberately kept out of the hero. |
 
 Both images carry explicit `width` and `height` attributes so no layout shift

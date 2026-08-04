@@ -50,6 +50,7 @@
   --rule-light: rgba(35, 40, 42, 0.16);
   --rule-strong: rgba(35, 40, 42, 0.28);
   --rule-on-dark: rgba(246, 243, 234, 0.18);
+  --rule-accent-on-dark: rgba(194, 145, 79, 0.75);
   --focus-ring: var(--c-bronze);
   --focus-ring-on-dark: var(--c-bronze-light);
   --error: #8c2f22;
@@ -84,6 +85,7 @@
 
   /* Layout */
   --wrap: 1080px;
+  --wrap-hero: 1300px;
   --measure: 62ch;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --spine-offset: 2.25rem;
@@ -215,6 +217,18 @@ a:hover {
   max-width: none;
 }
 
+/* Hero eyebrow: a short inline rule instead of the spine's diamond marker,
+   so the hero needs no left rail. */
+.eyebrow--line::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  margin-right: 0.75rem;
+  vertical-align: 0.28em;
+  background-color: var(--accent-on-dark);
+}
+
 .lede {
   font-size: var(--fs-body-lg);
   line-height: 1.6;
@@ -286,7 +300,6 @@ a:hover {
 /* The plumb line — one continuous hairline running the height of the page.
    It sits exactly --spine-offset to the left of the text column. */
 .section::before,
-.hero::before,
 .page-head::before,
 .site-footer::before {
   content: "";
@@ -300,7 +313,6 @@ a:hover {
 }
 
 .section--dark::before,
-.hero::before,
 .page-head::before,
 .site-footer::before {
   background-color: var(--rule-on-dark);
@@ -389,7 +401,6 @@ a:hover {
   top: 0;
   z-index: 50;
   background-color: var(--c-green-900);
-  border-bottom: 1px solid var(--rule-on-dark);
 }
 
 .header-bar {
@@ -402,11 +413,12 @@ a:hover {
 }
 
 /* Logo.
-   Assets/greenday-venture-logo.png is a transparent, tightly cropped web copy
-   of Assets/logo.png. Displayed at 180px wide on desktop and 140px on mobile;
-   height follows the natural 2.64:1 proportion, never set independently.
-   TODO: Client confirmation required: this is a concept logo, not an approved
-   mark. */
+   Assets/greenday-venture-logo.svg — true vector, so it stays sharp at any size
+   and on any display density. Displayed 175px wide on desktop, 140px on mobile,
+   160px in the footer; height always follows the natural 2.75:1 proportion and
+   is never set independently.
+   TODO: Client confirmation required: this is still a concept mark, not an
+   approved logo. */
 .site-logo-link {
   display: inline-flex;
   line-height: 0;
@@ -516,7 +528,7 @@ a:hover {
   color: var(--c-ivory);
   border: 1px solid var(--c-bronze);
   border-radius: var(--radius-sm);
-  padding: 0.5rem 0.95rem;
+  padding: 0.45rem 0.9rem;
   font-weight: 600;
 }
 
@@ -647,7 +659,7 @@ a:hover {
 .hero {
   background-color: var(--bg-dark);
   color: var(--c-sage-200);
-  padding-block: clamp(3.5rem, 9vw, 7rem);
+  padding-block: clamp(3rem, 6vw, 5.5rem);
   position: relative;
   overflow: hidden;
 }
@@ -678,43 +690,57 @@ a:hover {
 }
 
 .hero-inner {
-  max-width: 46rem;
+  max-width: 40rem;
 }
 
-/* The two hero labels are longer than the column, so they always stack.
-   Matching their width makes that read as a deliberate pair. */
-.hero .btn {
-  min-width: min(19rem, 100%);
-  text-align: center;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-6);
+  margin-top: var(--sp-6);
+}
+
+/* Secondary action is a quiet text link, not a second button, so the primary
+   CTA carries the hierarchy alone. Padding keeps the tap target at 44px. */
+.hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.6rem 0.15rem;
+  color: var(--c-sage-200);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.hero-secondary:hover {
+  color: var(--c-ivory);
+  text-decoration-color: var(--accent-on-dark);
+  text-decoration-thickness: 2px;
 }
 
 .hero-figure {
   margin: 0;
   position: relative;
+  /* Below 900px the image stacks under the copy and shares its block width,
+     so the two stay on one axis. On phones the cap is never reached. */
+  max-width: 40rem;
 }
 
+/* One restrained treatment only: a single 1px bronze border. No offset outline,
+   no radius, no shadow, no card. */
 .hero-figure img {
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: 58% center;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--rule-on-dark);
-}
-
-/* A quiet bronze corner rule so the photograph reads as part of the layout
-   rather than a pasted-in stock image. */
-.hero-figure::after {
-  content: "";
-  position: absolute;
-  left: calc(var(--sp-4) * -1);
-  bottom: calc(var(--sp-4) * -1);
-  width: 42%;
-  max-width: 180px;
-  height: 1px;
-  background-color: var(--accent-on-dark);
-  opacity: 0.9;
+  object-position: 46% center;
+  border: 1px solid var(--rule-accent-on-dark);
 }
 
 .hero h1 {
@@ -735,10 +761,10 @@ a:hover {
 }
 
 .hero-meta {
-  margin-top: var(--sp-7);
+  margin-top: var(--sp-6);
   padding-top: var(--sp-4);
   border-top: 1px solid var(--rule-on-dark);
-  font-size: var(--fs-small);
+  font-size: 0.95rem;
   color: var(--c-sage-400);
   max-width: 54ch;
 }
@@ -1344,16 +1370,38 @@ noscript .form-status {
 
 @media (min-width: 900px) {
   .site-logo {
-    width: 180px;
+    width: 175px;
+  }
+
+  /* The header keeps the global wrapper, so interior pages are untouched. */
+  .site-header .wrap {
+    padding-left: var(--gutter);
+  }
+
+  /* The homepage hero gets its own wider container, but anchored: its left edge
+     stays exactly where the header logo sits, and it extends to the right out to
+     the page gutter, capped at --wrap-hero. Widening symmetrically would have
+     pulled the headline left of the logo and broken the masthead alignment.
+     The global --wrap used by every other section is unchanged, and no left rail
+     is reserved. */
+  .hero .wrap {
+    max-width: var(--wrap-hero);
+    margin-left: calc(max(0px, (100% - var(--wrap)) / 2) + var(--gutter));
+    margin-right: var(--gutter);
+    padding-inline: 0;
   }
 
   .hero-grid {
-    grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
-    gap: clamp(2rem, 4vw, 3.75rem);
+    grid-template-columns: minmax(0, 51fr) minmax(0, 49fr);
+    gap: clamp(2.25rem, 3vw, 3.5rem);
   }
 
-  .hero-figure img {
-    aspect-ratio: 3 / 2;
+  .hero-inner {
+    max-width: 640px;
+  }
+
+  .hero-figure {
+    max-width: none;
   }
 
   .site-nav {
@@ -1365,7 +1413,6 @@ noscript .form-status {
   }
 
   .section::before,
-  .hero::before,
   .page-head::before,
   .site-footer::before,
   .marked::before {
@@ -1397,19 +1444,6 @@ noscript .form-status {
   }
 }
 
-/* Above 1200px the hero photograph breaks out of the content column and runs
-   out to the page's outer margin, so its right edge lines up with the gutter
-   the rest of the site uses. The text column stays on the shared grid. */
-@media (min-width: 1200px) {
-  .hero-figure {
-    margin-right: calc(-1 * (100vw - var(--wrap)) / 2);
-  }
-
-  .hero-figure img {
-    border-radius: var(--radius-md) 0 0 var(--radius-md);
-    border-right: 0;
-  }
-}
 
 /* ==========================================================================
    Reduced Motion
