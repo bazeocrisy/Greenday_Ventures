@@ -241,6 +241,24 @@
     var validate = function () {
       var problems = [];
 
+      var typeField = form.elements.inquiry_type;
+      if (typeField) {
+        var typeChosen = false;
+        for (var t = 0; t < typeField.length; t += 1) {
+          if (typeField[t].checked) { typeChosen = true; }
+        }
+        var typeError = document.getElementById('inquiry_type-error');
+        var typeWrap = typeField[0].closest('.field');
+        if (!typeChosen) {
+          if (typeError) { typeError.textContent = 'Choose the option that best describes you.'; }
+          if (typeWrap) { typeWrap.classList.add('has-error'); }
+          problems.push(typeField[0]);
+        } else {
+          if (typeError) { typeError.textContent = ''; }
+          if (typeWrap) { typeWrap.classList.remove('has-error'); }
+        }
+      }
+
       var name = form.elements.name;
       var email = form.elements.email;
       var message = form.elements.message;
@@ -314,16 +332,17 @@
       var problems = validate();
 
       if (problems.length > 0) {
-        status.innerHTML = '<p>Some details are still needed. Check the highlighted fields above.</p>';
+        status.innerHTML = '<p>A few details are still needed. Check the highlighted fields above.</p>';
         problems[0].focus();
         return;
       }
 
-      // Honest development-safe result. This is not a success message.
+      // Accurate, user-facing wording: nothing is sent from this page.
       status.innerHTML =
-        '<p><strong>This form is not connected yet.</strong> Your message has not been sent.</p>' +
-        '<p>Use the button below to open the same details in your email program, ' +
-        'or write to <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a> directly.</p>' +
+        '<p><strong>Your message is ready.</strong> Use the button below to open it ' +
+        'in your email program, check it over, and send it.</p>' +
+        '<p>If nothing opens, write to <a href="mailto:' + CONTACT_EMAIL + '">' +
+        CONTACT_EMAIL + '</a> and include the same details.</p>' +
         '<p><a class="btn btn--secondary" href="' + buildMailto() + '">Open this message in email</a></p>';
     });
 

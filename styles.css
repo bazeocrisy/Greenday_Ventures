@@ -63,7 +63,7 @@
 
   /* Type scale */
   --fs-eyebrow: 0.88rem;
-  --fs-small: 1rem;
+  --fs-small: 1.06rem;
   --fs-body: 1.075rem;
   --fs-body-lg: 1.19rem;
   --fs-h3: clamp(1.2rem, 1.05rem + 0.55vw, 1.45rem);
@@ -792,7 +792,7 @@ a:hover {
   margin-top: var(--sp-6);
   padding-top: var(--sp-4);
   border-top: 1px solid var(--rule-on-dark);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--c-sage-400);
   max-width: 54ch;
 }
@@ -899,6 +899,22 @@ a:hover {
    takes a narrow column of its own and stays in place while the content moves. */
 .pillars {
   grid-template-columns: 1fr;
+  counter-reset: pillar;
+}
+
+.pillar {
+  counter-increment: pillar;
+}
+
+.pillar::before {
+  content: counter(pillar, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: var(--sp-2);
 }
 
 /* Section 5 — sector list at display scale rather than body scale. */
@@ -1005,7 +1021,7 @@ a:hover {
 .founder-role {
   font-size: var(--fs-small);
   color: var(--text-body);
-  margin: 0;
+  margin: 0 0 var(--sp-4);
 }
 
 /* Section 8 — closing CTA */
@@ -1085,7 +1101,7 @@ a:hover {
 
 .about-portrait {
   width: 100%;
-  max-width: 260px;
+  max-width: 320px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center top;
@@ -1140,22 +1156,35 @@ a:hover {
   margin-bottom: 0;
 }
 
+/* Vertical timeline: one hairline with the numbers sitting on it. The same
+   plumb-line device as the rest of the site, turned into a sequence. */
 .process-steps {
   list-style: none;
   counter-reset: pstep;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 3.25rem;
+  position: relative;
+  max-width: 46rem;
+}
+
+.process-steps::before {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  top: 0.7rem;
+  bottom: 3rem;
+  width: 1px;
+  background-color: var(--rule-strong);
 }
 
 .process-steps > li {
   counter-increment: pstep;
   position: relative;
-  padding: var(--sp-5) 0;
-  border-bottom: 1px solid var(--rule-light);
+  padding: 0 0 var(--sp-7);
 }
 
-.process-steps > li:first-child {
-  border-top: 1px solid var(--rule-light);
+.process-steps > li:last-child {
+  padding-bottom: 0;
 }
 
 .process-steps > li h2 {
@@ -1165,13 +1194,18 @@ a:hover {
 
 .process-steps > li::before {
   content: counter(pstep, decimal-leading-zero);
+  position: absolute;
+  left: -3.25rem;
+  top: 0;
+  width: 1.9rem;
+  text-align: center;
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--accent);
-  display: block;
-  margin-bottom: var(--sp-2);
+  background-color: var(--bg-page);
+  padding-block: 0.3rem;
 }
 
 /* Founder letter (about.html) */
@@ -1184,7 +1218,44 @@ a:hover {
 }
 
 .letter h2 {
-  margin-bottom: var(--sp-6);
+  margin-bottom: var(--sp-7);
+}
+
+.letter h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: var(--sp-8) 0 var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--rule-strong);
+}
+
+.letter h3:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.pull-quote {
+  margin: var(--sp-8) 0;
+  padding-left: var(--sp-5);
+  border-left: 2px solid var(--accent);
+}
+
+.pull-quote blockquote {
+  margin: 0;
+}
+
+.letter .pull-quote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.05rem + 1.3vw, 2rem);
+  font-variation-settings: "opsz" 40;
+  line-height: 1.25;
+  color: var(--text-strong);
+  margin: 0;
 }
 
 .letter p {
@@ -1215,8 +1286,8 @@ a:hover {
    toggles would add a JavaScript dependency for no real benefit. */
 .qa-list {
   display: grid;
-  gap: var(--sp-7);
-  max-width: 44rem;
+  gap: var(--sp-8);
+  max-width: 46rem;
 }
 
 .qa {
@@ -1225,8 +1296,13 @@ a:hover {
 }
 
 .qa-q {
-  font-size: var(--fs-h3);
-  margin-bottom: var(--sp-3);
+  font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.65rem);
+  max-width: 32ch;
+  margin-bottom: var(--sp-4);
+}
+
+.qa-a {
+  max-width: var(--measure);
 }
 
 .qa-a p {
@@ -1285,18 +1361,31 @@ a:hover {
 /* Resources hub (resources.html) */
 .resource-list {
   display: grid;
-  gap: var(--sp-7);
-  max-width: 46rem;
+  gap: var(--sp-8);
+  max-width: 48rem;
+  counter-reset: res;
 }
 
 .resource {
-  padding-top: var(--sp-4);
+  counter-increment: res;
+  padding-top: var(--sp-5);
   border-top: 1px solid var(--rule-strong);
 }
 
+.resource::before {
+  content: counter(res, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: var(--sp-3);
+}
+
 .resource h2 {
-  font-size: var(--fs-h3);
-  margin-bottom: var(--sp-2);
+  font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.8rem);
+  margin-bottom: var(--sp-3);
 }
 
 .resource h2 a {
@@ -1310,6 +1399,7 @@ a:hover {
 }
 
 .resource p {
+  max-width: var(--measure);
   margin-bottom: 0;
 }
 
@@ -1439,6 +1529,13 @@ a:hover {
   flex-shrink: 0;
   margin: 0;
   accent-color: var(--c-green-700);
+}
+
+.form-explainer {
+  font-size: var(--fs-small);
+  color: var(--text-body);
+  max-width: var(--measure);
+  margin-bottom: var(--sp-5);
 }
 
 .form-status {
@@ -1800,6 +1897,24 @@ a:hover {
     max-width: none;
   }
 
+  .qgroup h2,
+  .qgroup-index {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .page-head::after {
+    content: "Greenday Venture — greenday.venture@gmail.com";
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 9pt;
+    color: #444;
+  }
+
+  @page {
+    margin: 16mm;
+  }
+
   .qitem {
     break-inside: avoid;
     padding: 0.35rem 0;
@@ -1932,8 +2047,8 @@ noscript .form-status {
   }
 
   .about-founder {
-    grid-template-columns: 260px minmax(0, 1fr);
-    gap: var(--sp-7);
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: var(--sp-8);
   }
 
   .footer-grid {

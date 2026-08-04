@@ -260,6 +260,18 @@ transmitted, and Greenday Venture never sees any of it.** If storage is
 unavailable the worksheet still works for the session. Without JavaScript it
 degrades to plain checkboxes and text fields that work on screen and on paper.
 
+## Pre-launch items
+
+Not built yet, and not required for the client presentation:
+
+- **Privacy Policy** page
+- **Website Disclaimer** page
+- Converting the logo wordmark's live `<text>` to vector outlines (recommended
+  before final launch — see the logo section)
+- Connecting the inquiry form to a real endpoint
+- Replacing the AI-generated hero with commissioned photography
+- Final domain, and updating every canonical and Open Graph URL
+
 ## Client Review Required
 
 **All newly drafted substantive content on this site requires Jermane Lamb's

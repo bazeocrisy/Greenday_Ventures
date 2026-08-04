@@ -104,7 +104,8 @@
                  these four inquiry categories. -->
             <fieldset class="field field--choice">
               <legend>Which best describes you?</legend>
-              <label class="choice"><input type="radio" name="inquiry_type" value="I own a business"> I own a business</label>
+              <span class="field-error" id="inquiry_type-error"></span>
+              <label class="choice"><input type="radio" name="inquiry_type" value="I own a business" required> I own a business</label>
               <label class="choice"><input type="radio" name="inquiry_type" value="I represent a business owner"> I represent a business owner</label>
               <label class="choice"><input type="radio" name="inquiry_type" value="I am a broker or advisor"> I am a broker or advisor</label>
               <label class="choice"><input type="radio" name="inquiry_type" value="I have a general question"> I have a general question</label>
@@ -166,13 +167,15 @@
             <div class="field">
               <label for="message">Message</label>
               <textarea id="message" name="message" required aria-describedby="message-hint message-error"></textarea>
-              <span class="field-hint" id="message-hint">A few sentences is plenty. Please do not include financial statements, tax records, or other sensitive documents in a first message.</span>
+              <span class="field-hint" id="message-hint">A few sentences is plenty. Please do not include detailed financial records, account information, tax documents, or other highly sensitive information in this initial message.</span>
               <span class="field-error" id="message-error"></span>
             </div>
 
             <!-- Label reflects what actually happens: the form is not connected, so the
                  button prepares an email rather than sending a message. Change it
                  back to "Send message" when a real endpoint is wired up. -->
+            <p class="form-explainer">Pressing the button below opens a message in your own email program with these details filled in, ready for you to review and send. You can also write directly to <a href="mailto:greenday.venture@gmail.com">greenday.venture@gmail.com</a>.</p>
+
             <button class="btn btn--primary" type="submit">Prepare Email</button>
 
             <!-- Status region. Announced to screen readers when it changes. -->
@@ -181,7 +184,7 @@
 
           <noscript>
             <div class="form-status">
-              <p>The form above needs JavaScript to work. Please email <a href="mailto:greenday.venture@gmail.com">greenday.venture@gmail.com</a> directly and Jermane will reply personally.</p>
+              <p>Please write to <a href="mailto:greenday.venture@gmail.com">greenday.venture@gmail.com</a> and Jermane will reply personally.</p>
             </div>
           </noscript>
         </div>
