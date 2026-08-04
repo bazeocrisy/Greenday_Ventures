@@ -112,7 +112,7 @@ files are superseded.
 supplied file in exactly two ways, neither of which touches the artwork:
 
 1. **viewBox.** The supplied frame is `0 0 900 240`; the web copy uses
-   `0 0 960 240` — the original frame plus 60 units of right-hand padding.
+   `40 12 650 192` — cropped to the artwork with measured headroom.
    Artwork coordinates are untouched, so the extra space lands entirely on the
    right. An earlier attempt tightened the frame to `62 18 512 186` to remove
    the empty space; that clipped the final letter of "Greenday" on machines
@@ -193,7 +193,7 @@ fallback. The homepage preloads the hero image for LCP.
 | `Assets/hero-owner-decision.jpg` | Homepage hero (right side of the split layout) | 1408x768. Illustrative only — **not** Jermane Lamb, not clients, not an acquisition. **This image was produced with an AI generation tool.** See the note below. |
 | `Assets/hero-we-service.jpg` | Nothing — previous hero, kept as an alternative | 1400x1052. Swap the `src` in the hero `<figure>` in `index.html` to use it again. |
 | `Assets/hero-we-service.png` | Nothing — preserved original | 2 MB. Kept unmodified. To load it instead of the JPEG, change the `src` in the hero `<figure>` in `index.html`. |
-| `Assets/greenday-venture-logo.svg` | Header **and** footer of all five pages | Vector. Displayed 175px wide on desktop, 140px on mobile, 160px in the footer. Natural ratio is **960:240 = 4:1**. Height always follows — never set a fixed height, `aspect-ratio` or `object-fit: cover` on the logo, any of which crops the wordmark. |
+| `Assets/greenday-venture-logo.svg` | Header **and** footer of all five pages | Vector. Displayed 205px wide on desktop, 168px on mobile, 190px in the footer. Natural ratio is **650:192 = 3.39:1**. Height always follows — never set a fixed height, `aspect-ratio` or `object-fit: cover` on the logo, any of which crops the wordmark. |
 | `Assets/greenday-venture-icon.svg` | Favicon on all five pages | 256×256 icon mark, used exactly as supplied. |
 | `Assets/greenday-venture-logo-source.svg` | Nothing — preserved original | The supplied file, untouched. |
 | `Assets/logo.png`, `Assets/greenday-venture-logo.png` | Nothing — superseded | The earlier raster logo and its processed copy. Kept for reference; safe to delete. |

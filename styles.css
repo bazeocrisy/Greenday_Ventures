@@ -62,7 +62,7 @@
     Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Type scale */
-  --fs-eyebrow: 0.78rem;
+  --fs-eyebrow: 0.88rem;
   --fs-small: 1rem;
   --fs-body: 1.075rem;
   --fs-body-lg: 1.19rem;
@@ -213,8 +213,8 @@ a:hover {
   display: block;
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
   margin: 0 0 var(--sp-4);
@@ -419,7 +419,7 @@ a:hover {
 /* Logo.
    Assets/greenday-venture-logo.svg — true vector, so it stays sharp at any size
    and on any display density. Displayed 175px wide on desktop, 140px on mobile,
-   160px in the footer; height always follows the natural 4:1 proportion and
+   190px in the footer; height always follows the natural 3.39:1 proportion and
    is never set independently. The SVG's natural ratio is 960:240 = 4:1.
    TODO: Client confirmation required: this is still a concept mark, not an
    approved logo. */
@@ -437,7 +437,7 @@ a:hover {
    crop the wordmark. */
 .site-logo {
   display: block;
-  width: 140px;
+  width: 168px;
   height: auto;
   max-width: 100%;
   object-fit: contain;
@@ -445,7 +445,7 @@ a:hover {
 
 .footer-logo {
   display: block;
-  width: 160px;
+  width: 190px;
   height: auto;
   max-width: 100%;
   object-fit: contain;
@@ -1926,7 +1926,7 @@ noscript .form-status {
 
 @media (min-width: 900px) {
   .site-logo {
-    width: 175px;
+    width: 205px;
   }
 
   /* The header keeps the global wrapper, so interior pages are untouched. */
